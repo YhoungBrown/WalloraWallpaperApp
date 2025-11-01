@@ -1,98 +1,104 @@
-import { Image } from 'expo-image';
-import { Platform, StyleSheet } from 'react-native';
+import { ActivityIndicator, ScrollView, Text, TouchableOpacity, View } from 'react-native';
 
-import { HelloWave } from '@/components/hello-wave';
-import ParallaxScrollView from '@/components/parallax-scroll-view';
-import { ThemedText } from '@/components/themed-text';
-import { ThemedView } from '@/components/themed-view';
-import { Link } from 'expo-router';
+import styles from '@/Stylesheets/HomeScreenStylesheet';
+import CategoryCard from '@/components/CategoryCard';
+import Header from '@/components/Header';
+import { CATEGORIES, SPECS } from '@/constants/Specifications';
+import { useColorScheme } from '@/hooks/use-color-scheme.web';
+import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
+import MaskedView from '@react-native-masked-view/masked-view';
+import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
+
 
 export default function HomeScreen() {
-  return (
-    <ParallaxScrollView
-      headerBackgroundColor={{ light: '#A1CEDC', dark: '#1D3D47' }}
-      headerImage={
-        <Image
-          source={require('@/assets/images/partial-react-logo.png')}
-          style={styles.reactLogo}
-        />
-      }>
-      <ThemedView style={styles.titleContainer}>
-        <ThemedText type="title">Welcome!</ThemedText>
-        <HelloWave />
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 1: Try it</ThemedText>
-        <ThemedText>
-          Edit <ThemedText type="defaultSemiBold">app/(tabs)/index.tsx</ThemedText> to see changes.
-          Press{' '}
-          <ThemedText type="defaultSemiBold">
-            {Platform.select({
-              ios: 'cmd + d',
-              android: 'cmd + m',
-              web: 'F12',
-            })}
-          </ThemedText>{' '}
-          to open developer tools.
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <Link href="/modal">
-          <Link.Trigger>
-            <ThemedText type="subtitle">Step 2: Explore</ThemedText>
-          </Link.Trigger>
-          <Link.Preview />
-          <Link.Menu>
-            <Link.MenuAction title="Action" icon="cube" onPress={() => alert('Action pressed')} />
-            <Link.MenuAction
-              title="Share"
-              icon="square.and.arrow.up"
-              onPress={() => alert('Share pressed')}
-            />
-            <Link.Menu title="More" icon="ellipsis">
-              <Link.MenuAction
-                title="Delete"
-                icon="trash"
-                destructive
-                onPress={() => alert('Delete pressed')}
-              />
-            </Link.Menu>
-          </Link.Menu>
-        </Link>
+    const insets = useSafeAreaInsets();
+    const router = useRouter();
+    const colorScheme = useColorScheme();
 
-        <ThemedText>
-          {`Tap the Explore tab to learn more about what's included in this starter app.`}
-        </ThemedText>
-      </ThemedView>
-      <ThemedView style={styles.stepContainer}>
-        <ThemedText type="subtitle">Step 3: Get a fresh start</ThemedText>
-        <ThemedText>
-          {`When you're ready, run `}
-          <ThemedText type="defaultSemiBold">npm run reset-project</ThemedText> to get a fresh{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> directory. This will move the current{' '}
-          <ThemedText type="defaultSemiBold">app</ThemedText> to{' '}
-          <ThemedText type="defaultSemiBold">app-example</ThemedText>.
-        </ThemedText>
-      </ThemedView>
-    </ParallaxScrollView>
+    const [fontsLoaded] = useFonts({
+    Poppins_400Regular,
+    Poppins_500Medium,
+    Poppins_600SemiBold,
+    Poppins_700Bold,
+  });
+
+
+  if (!fontsLoaded) {
+    return (
+      <View style={[styles.center, { flex: 1, backgroundColor: SPECS.colors.bg }]}>
+        <ActivityIndicator size="large" />
+      </View>
+    );
+  }
+
+  const HomeCategory = CATEGORIES.slice(0, 3);
+
+  return (
+    <View 
+      style={{paddingTop: insets.top, paddingBottom: insets.bottom}}
+    >
+
+      <Header />
+
+      <ScrollView 
+        contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}
+      >
+        <View style={styles.titleBlock}>
+          <MaskedView
+            maskElement={<Text style={styles.titleText}>Discover Beautiful Wallpapers</Text>}
+          >
+            <LinearGradient
+              start={[0, 0]}
+              end={[1, 0]}
+              colors={['#FF9A8B', '#FF6A88']}
+            >
+              <Text style={[styles.titleText, { opacity: 0 }]}>Discover Beautiful Wallpapers</Text>
+            </LinearGradient>
+          </MaskedView>
+
+          <Text style={styles.subtitleText}>
+            Discover curated collections of stunning wallpapers. Browse by category, preview in full-screen, and set your favorites.
+          </Text>
+        </View>
+
+        
+        <View style={styles.sectionHeader}>
+          <Text style={styles.sectionTitle}>
+            Categories
+          </Text>
+          <TouchableOpacity activeOpacity={0.5}
+              onPress={() => {
+                router.push('./category')
+              }}
+          >
+            <Text style={styles.seeAll}>
+              See All
+            </Text>
+          </TouchableOpacity>
+        </View>
+
+        
+        <View style={styles.list}>
+          {HomeCategory.map((c, idx) => (
+            <CategoryCard
+              key={c.id}
+              index={idx}
+              title={c.title}
+              subtitle={c.subtitle}
+              count={c.count}
+              image={c.image}
+              onPress={() => {
+                router.push('./category')
+              }}
+            />
+          ))}
+          <View style={{ height: 40 }} />
+        </View>
+      </ScrollView>
+    
+    </View>
   );
 }
 
-const styles = StyleSheet.create({
-  titleContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-  },
-  stepContainer: {
-    gap: 8,
-    marginBottom: 8,
-  },
-  reactLogo: {
-    height: 178,
-    width: 290,
-    bottom: 0,
-    left: 0,
-    position: 'absolute',
-  },
-});
