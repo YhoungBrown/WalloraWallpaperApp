@@ -1,8 +1,9 @@
 import styles from '@/Stylesheets/HeaderComponentStylesheet'
+import { Ionicons } from '@expo/vector-icons'
 import MaskedView from '@react-native-masked-view/masked-view'
 import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
-import { Text, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 const Header = () => {
   return (
@@ -29,9 +30,9 @@ const Header = () => {
             </View>
             <Text style={styles.appName}>Wallpaper Studio</Text>
           </View>
-          <View style={styles.menuIcon}>
-            <Text style={{ fontSize: 20 }}>☰</Text>
-          </View>
+          <TouchableOpacity style={styles.menuIcon}>
+            <Ionicons name="menu" size={28} color="#111" />
+          </TouchableOpacity>
         </View>
   )
 }
