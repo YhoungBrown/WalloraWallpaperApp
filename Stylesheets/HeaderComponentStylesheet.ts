@@ -1,50 +1,60 @@
 import { SPECS } from "@/constants/Specifications";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+import { RFValue } from "react-native-responsive-fontsize";
+
+const { width, height } = Dimensions.get("window");
+
+
+const wp = (percentage: number): number => (width * percentage) / 100;
+const hp = (percentage: number): number => (height * percentage) / 100;
+
+
 
 const styles = StyleSheet.create({
-     headerRow: {
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        alignContent: 'center',
-        alignItems: 'center',
-        backgroundColor: SPECS.colors.bg,
-        padding: SPECS.spacing.sm,
-        elevation: 1,
-        borderBottomWidth: 5,
-        borderBottomColor: '#0000'
-    },
-    logoRow: { 
-        flexDirection: 'row', 
-        alignItems: 'center',
-    },
-    logoMark: {
-        width: 36,
-        height: 36,
-        borderRadius: SPECS.spacing.md - 6,
-        justifyContent: 'center',
-        alignItems: 'center',
-        marginRight: 10,
-       
-    },
-    logoMarkInner: {
-        width: 28,
-        height: 28,
-        borderRadius: 8,
-    },
-    logoText: {
-        fontSize: 30,
-        fontWeight: '700',
-        textAlign: 'center',
-        backgroundColor: 'transparent',
-    },
-    appName: {
-        fontFamily: 'Poppins_600SemiBold',
-        fontSize: SPECS.fonts.sizes.sm + 2,
-        color: SPECS.colors.blacktext,
-    },
-    menuIcon: {
-        padding: SPECS.spacing.xs - 2,
-    },
-})
+  headerRow: {
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignContent: "center",
+    alignItems: "center",
+    backgroundColor: SPECS.colors.bg,
+    paddingHorizontal: wp(4),
+    paddingVertical: hp(2),
+    elevation: 1,
+    borderBottomWidth: StyleSheet.hairlineWidth,
+    borderBottomColor: "#00000010",
+  },
+  logoRow: {
+    flexDirection: "row",
+    alignItems: "center",
+  },
+  logoMark: {
+    width: wp(9), 
+    height: wp(9),
+    borderRadius: SPECS.radius.md - 4,
+    justifyContent: "center",
+    alignItems: "center",
+    marginRight: wp(2.5),
+    marginBottom: wp(3)
+  },
+  logoMarkInner: {
+    width: wp(7),
+    height: wp(7),
+    borderRadius: SPECS.radius.md - 8,
+  },
+  logoText: {
+    fontSize: RFValue(30, 680), 
+    fontWeight: "700",
+    textAlign: "center",
+    backgroundColor: "transparent",
+  },
+  appName: {
+    fontFamily: "Poppins_600SemiBold",
+    fontSize: SPECS.fonts.sizes.sm + 2,
+    color: SPECS.colors.blacktext,
+  },
+  menuIcon: {
+    padding: wp(1.5), 
+  },
+});
 
 export default styles;

@@ -1,65 +1,69 @@
 import { SPECS } from "@/constants/Specifications";
-import { StyleSheet } from "react-native";
+import { Dimensions, StyleSheet } from "react-native";
+
+const { width } = Dimensions.get("window");
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: SPECS.colors.bg,
-    paddingTop: SPECS.spacing.lg + 27,
+    paddingTop: SPECS.spacing.lg + (width * 0.07),
   },
   menu: {
     flex: 1,
   },
   label: {
     fontSize: SPECS.fonts.sizes.md,
-    color: '#000',
-    fontFamily: 'Poppins_500Medium',
+    color: "#000",
+    fontFamily: "Poppins_500Medium",
   },
   activeLabel: {
-    color: '#FF6A88',
-    fontWeight: '600',
+    color: "#FF6A88",
+    fontWeight: "600",
   },
   activeItem: {
-    backgroundColor: 'rgba(255,106,136,0.08)',
+    backgroundColor: "rgba(255,106,136,0.08)",
   },
   divider: {
-    height: 1,
-    backgroundColor: '#EAEAEA',
-    marginHorizontal: SPECS.spacing.md,
+    height:  Math.max(1, width * 0.002),
+    backgroundColor: "#EAEAEA",
+    marginHorizontal: width * 0.04,
   },
   customRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 8,
-    paddingHorizontal: 16,
-    marginBottom: 10,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: width * 0.02, 
+    paddingHorizontal: width * 0.04, 
+    marginBottom: width * 0.025, 
   },
   customLabel: {
-    fontSize: 16,
-    fontFamily: 'Poppins_500Medium',
-    color: '#111',
+    fontSize: SPECS.fonts.sizes.md,
+    fontFamily: "Poppins_500Medium",
+    color: "#111",
+    flexShrink: 1, 
   },
-   row: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 14,
+  row: {
+    flexDirection: "row",
+    alignItems: "center",
+    gap: width * 0.035, 
+    flexWrap: "wrap", 
   },
   item: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 14,
-    paddingVertical: 10,
-    paddingHorizontal: 14,
+    flexDirection: "row",
+    alignItems: "center",
+    gap: width * 0.035, 
+    paddingVertical: width * 0.025, 
+    paddingHorizontal: width * 0.035, 
     borderRadius: 50,
-    flexShrink: 1
+    flexShrink: 1, 
   },
   itemContainer: {
-    marginBottom: 6,
-    paddingHorizontal: 10,
+    marginBottom: width * 0.015, 
+    paddingHorizontal: width * 0.025,
   },
   itemOuterContainer: {
-    marginVertical: 3,
-  }
+    marginVertical: width * 0.012,
+  },
 });
 
 export default styles;
