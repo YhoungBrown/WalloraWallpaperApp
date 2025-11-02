@@ -18,3 +18,11 @@ export type TitleTextProps = {
   titleText: string;
   titleSubtext: string;
 }
+
+export type WallpaperCardProps = {
+  image: any;
+  title: string;
+  id: string;
+  liked?: boolean;
+  onPress?: () => void;
+};

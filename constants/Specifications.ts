@@ -38,13 +38,6 @@ export const CATEGORIES = [
     image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=60',
   },
   {
-    id: 'animals',
-    title: 'Animals',
-    subtitle: 'Wildlife, pets, and creatures of the earth',
-    count: 6,
-    image: 'https://images.unsplash.com/photo-1504203700686-0b3b5f7c52f1?auto=format&fit=crop&w=1200&q=60',
-  },
-  {
     id: 'food',
     title: 'Food',
     subtitle: 'Delicious dishes, drinks, and ingredients',
@@ -98,7 +91,7 @@ export const CATEGORIES = [
     title: 'Sports',
     subtitle: 'Athletics, fitness, and motion',
     count: 4,
-    image: 'https://images.unsplash.com/photo-1505842465776-3d90f616310d?auto=format&fit=crop&w=1200&q=60',
+    image: 'https://th.bing.com/th/id/OIP.aYgNIVDOVHbA3CcmnwgMZQHaE8?w=270&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
   },
   {
     id: 'ocean',
@@ -121,35 +114,94 @@ export const CATEGORIES = [
     count: 4,
     image: 'https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&w=1200&q=60',
   },
+  {
+    id: 'animals',
+    title: 'Animals',
+    subtitle: 'Wildlife, pets, and creatures of the earth',
+    count: 6,
+    image: 'https://th.bing.com/th/id/OIP.iCcpkvsTETnpysSqnVFHXgHaFk?w=218&h=180&c=7&r=0&o=7&pid=1.7&rm=3',
+  },
 ];
 
+//'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60'
 
 export const NATURE = [
   {
-    id: 'nature',
+    id: '1',
     title: 'Nature',
-    subtitle: 'Mountains, Forest and Landscapes',
-    count: 3,
-    image: 'https://images.unsplash.com/photo-1501785888041-af3ef285b470?auto=format&fit=crop&w=1200&q=60',
+    image: require('../assets/images/nature.jpeg'),
+    liked: false
   },
+   { 
+    id: '2', 
+    title: 'Nature ', 
+    image: require('../assets/images/beautifel.jpg'), 
+    liked: true 
+  },
+  { 
+    id: '3', 
+    title: 'Nature', 
+    image: require('../assets/images/nature.jpeg'), 
+    liked: false 
+  },
+  { 
+    id: '4', 
+    title: 'Nature', 
+    image: require('../assets/images/park.jpg'), 
+    liked: false 
+  }
 ];
 
 export const ABSTRACT = [
   {
-    id: 'abstract',
+    id: '1',
     title: 'Abstract',
-    subtitle: 'Modern Geometric and artistic designs',
-    count: 4,
-    image: 'https://images.unsplash.com/photo-1503264116251-35a269479413?auto=format&fit=crop&w=1200&q=60',
+    image: require('../assets/images/abstracts.jpg'),
+     liked: false
   },
+  {
+  id: '2',
+  title: 'Abstract',
+  image: require('../assets/images/abstract2.jpg'),
+  liked: true,
+},
+{
+  id: '3',
+  title: 'Abstract',
+  image: require('../assets/images/abstract2.jpg'),
+  liked: false
+},
+{
+  id: '4',
+  title: 'Abstract',
+  image: require('../assets/images/abstracts.jpg'),
+  liked: false
+},
 ];
 
 export const CITY = [
   {
-    id: 'city',
+    id: '1',
     title: 'Cityscapes',
-    subtitle: 'Urban photos & skylines',
-    count: 5,
-    image: 'https://images.unsplash.com/photo-1467269204594-9661b134dd2b?auto=format&fit=crop&w=1200&q=60',
+    image: require('../assets/images/city1.jpeg'),
+    liked: false
   },
+  {
+  id: '2',
+  title: 'City',
+  image: require('../assets/images/city2.jpg'),
+  liked: true
+},
+{
+  id: '3',
+  title: 'City',
+  image: require('../assets/images/city3.jpeg'),
+  liked: false
+},
+{
+  id: '4',
+  title: 'City',
+  image: require('../assets/images/city2.jpg'),
+  liked: false
+},
 ]
