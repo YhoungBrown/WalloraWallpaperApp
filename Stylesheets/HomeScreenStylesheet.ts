@@ -21,22 +21,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
   },
-  titleBlock: {
-    marginTop: hp(5),
-    marginBottom: hp(2),
-  },
-  titleText: {
-    fontFamily: "Poppins_700Bold",
-    fontSize: SPECS.fonts.sizes.lg,
-    lineHeight: 36,
-    color: SPECS.colors.blacktext,
-  },
-  subtitleText: {
-    marginTop: hp(1),
-    color: SPECS.colors.muted,
-    fontSize: SPECS.fonts.sizes.md,
-    fontFamily: "Poppins_400Regular",
-  },
+  
   sectionHeader: {
     marginTop: hp(3),
     marginBottom: hp(1),

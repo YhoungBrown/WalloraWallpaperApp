@@ -13,3 +13,8 @@ export type DrawerParamList = {
   favourites: undefined;
   settings: undefined;
 };
+
+export type TitleTextProps = {
+  titleText: string;
+  titleSubtext: string;
+}

@@ -6,8 +6,8 @@ import Header from '@/components/Header';
 import { CATEGORIES, SPECS } from '@/constants/Specifications';
 import { useColorScheme } from '@/hooks/use-color-scheme.web';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
-import MaskedView from '@react-native-masked-view/masked-view';
-import { LinearGradient } from 'expo-linear-gradient';
+
+import Title from '@/components/TitleSection';
 import { useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
@@ -45,24 +45,11 @@ export default function HomeScreen() {
       <ScrollView 
         contentContainerStyle={styles.scroll} showsVerticalScrollIndicator={false}
       >
-        <View style={styles.titleBlock}>
-          <MaskedView
-            maskElement={<Text style={styles.titleText}>Discover Beautiful Wallpapers</Text>}
-          >
-            <LinearGradient
-              start={[0, 0]}
-              end={[1, 0]}
-              colors={['#FF9A8B', '#FF6A88']}
-            >
-              <Text style={[styles.titleText, { opacity: 0 }]}>Discover Beautiful Wallpapers</Text>
-            </LinearGradient>
-          </MaskedView>
 
-          <Text style={styles.subtitleText}>
-            Discover curated collections of stunning wallpapers. Browse by category, preview in full-screen, and set your favorites.
-          </Text>
-        </View>
-
+          <Title 
+            titleText='Discover Beautiful Wallpapers'
+            titleSubtext='Discover curated collections of stunning wallpapers. Browse by category, preview in full-screen, and set your favorites.'
+          />
         
         <View style={styles.sectionHeader}>
           <Text style={styles.sectionTitle}>
