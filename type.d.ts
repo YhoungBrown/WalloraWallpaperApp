@@ -6,3 +6,10 @@ export interface CategoryCardProps {
   index: number;
   onPress?: () => void;
 };
+
+export type DrawerParamList = {
+  index: undefined;
+  browse: undefined;
+  favourites: undefined;
+  settings: undefined;
+};

@@ -5,7 +5,16 @@ import { LinearGradient } from 'expo-linear-gradient'
 import React from 'react'
 import { Text, TouchableOpacity, View } from 'react-native'
 
+import { DrawerParamList } from '@/type'
+import type { DrawerNavigationProp } from '@react-navigation/drawer'
+import { useNavigation } from '@react-navigation/native'
+ 
+
+
+
 const Header = () => {
+   const navigation = useNavigation<DrawerNavigationProp<DrawerParamList>>();
+
   return (
     <View style={styles.headerRow}>
           <View style={styles.logoRow}>
@@ -24,14 +33,15 @@ const Header = () => {
                   >
                     <Text style={[styles.logoText, { opacity: 0 }]}>W</Text>
                   </LinearGradient>
-                </MaskedView>
-
-              
+                </MaskedView>              
             </View>
             <Text style={styles.appName}>Wallpaper Studio</Text>
           </View>
-          <TouchableOpacity style={styles.menuIcon}>
-            <Ionicons name="menu" size={28} color="#111" />
+          <TouchableOpacity 
+            style={styles.menuIcon}
+            onPress={() => navigation.openDrawer()}
+          >
+              <Ionicons name="menu" size={28} color="#111" />
           </TouchableOpacity>
         </View>
   )
