@@ -4,18 +4,17 @@ import styles from '@/Stylesheets/HomeScreenStylesheet';
 import CategoryCard from '@/components/CategoryCard';
 import Header from '@/components/Header';
 import { CATEGORIES, SPECS } from '@/constants/Specifications';
-import { useColorScheme } from '@/hooks/use-color-scheme.web';
 import { Poppins_400Regular, Poppins_500Medium, Poppins_600SemiBold, Poppins_700Bold, useFonts } from '@expo-google-fonts/poppins';
 
 import Title from '@/components/TitleSection';
-import { useRouter } from 'expo-router';
+import { usePathname, useRouter } from 'expo-router';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 
 export default function HomeScreen() {
     const insets = useSafeAreaInsets();
     const router = useRouter();
-    const colorScheme = useColorScheme();
+    const pathname = usePathname();
 
     const [fontsLoaded] = useFonts({
     Poppins_400Regular,
@@ -57,8 +56,9 @@ export default function HomeScreen() {
           </Text>
           <TouchableOpacity activeOpacity={0.5}
               onPress={() => {
-                router.push('./category')
+                router.push('./(Drawer)/browse')
               }}
+                key={`seeall-${pathname}`} 
           >
             <Text style={styles.seeAll}>
               See All
@@ -67,7 +67,7 @@ export default function HomeScreen() {
         </View>
 
         
-        <View style={styles.list}>
+        <View style={styles.list} >
           {HomeCategory.map((c, idx) => (
             <CategoryCard
               key={c.id}
@@ -77,7 +77,7 @@ export default function HomeScreen() {
               count={c.count}
               image={c.image}
               onPress={() => {
-                router.push('./category')
+                router.push('./(Drawer)/browse')
               }}
             />
           ))}
