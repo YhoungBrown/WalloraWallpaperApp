@@ -1,4 +1,4 @@
-import { Ionicons, MaterialCommunityIcons } from '@expo/vector-icons';
+import { Ionicons, MaterialCommunityIcons, Octicons } from '@expo/vector-icons';
 import * as Clipboard from 'expo-clipboard';
 import { LinearGradient } from 'expo-linear-gradient';
 import React, { useRef } from 'react';
@@ -52,7 +52,7 @@ const WallpaperModal = ({
         <View style={styles.modalBox}>
           {selected.linkCopied && (
             <Animated.View style={[styles.toast, { opacity: toastAnim.current }]}>
-              <Ionicons name="link-outline" size={16} color="#000" />
+              <Octicons name="link" size={16} color="#a06e02ff"  />
               <Text style={styles.toastText}>Link Copied</Text>
             </Animated.View>
           )}

@@ -151,7 +151,7 @@ const styles = StyleSheet.create({
       toastText: {
         marginLeft: 6,
         fontSize: 12,
-        color: "#111",
+        color: "#a06e02ff",
       },
 })
 

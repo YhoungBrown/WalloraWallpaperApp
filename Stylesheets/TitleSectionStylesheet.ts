@@ -2,10 +2,10 @@ import { SPECS } from "@/constants/Specifications";
 import { Dimensions, StyleSheet } from "react-native";
 
 
-const { width, height } = Dimensions.get("window");
+const { height } = Dimensions.get("window");
 
 
-const wp = (percentage: number): number => (width * percentage) / 100;
+
 const hp = (percentage: number): number => (height * percentage) / 100;
 
 
