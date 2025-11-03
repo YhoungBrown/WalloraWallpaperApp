@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         marginBottom: hp(2),
     },
     titleText: {
-        fontFamily: "Poppins_700Bold",
+        fontFamily: "Poppins_600SemiBold",
         fontSize: SPECS.fonts.sizes.lg,
         lineHeight: 36,
         color: SPECS.colors.blacktext,

@@ -14,7 +14,7 @@ const Title = ({titleText, titleSubtext} : TitleTextProps) => {
             <LinearGradient
               start={[0, 0]}
               end={[1, 0]}
-              colors={['#FF9A8B', '#FF6A88']}
+              colors={['#ffa500', '#FF9A8B','#FF9A8B', '#FF6A88', '#FF6A88','#FF6A88','#FF6A88']}
             >
               <Text style={[styles.titleText, { opacity: 0 }]}>{titleText}</Text>
             </LinearGradient>

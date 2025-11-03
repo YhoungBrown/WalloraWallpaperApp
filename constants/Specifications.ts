@@ -181,10 +181,10 @@ export const ABSTRACT = [
 },
 ];
 
-export const CITY = [
+export const CITYSCAPES  = [
   {
     id: '1',
-    title: 'Cityscapes',
+    title: 'City',
     image: require('../assets/images/city1.jpeg'),
     liked: false
   },

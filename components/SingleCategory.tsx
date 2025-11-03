@@ -6,7 +6,7 @@ import { Image, Text, TouchableOpacity, View } from 'react-native';
 
 const SingleCategory = ({ image, title, id, liked = false, onPress }: WallpaperCardProps) => {
   return (
-    <TouchableOpacity activeOpacity={0.9} style={styles.card} onPress={onPress}>
+    <TouchableOpacity activeOpacity={0.4} style={styles.card} onPress={onPress}>
       <Image source={image} style={styles.image} />
       <View style={styles.overlay}>
         <Text style={styles.title}>{`${title} ${id}`}</Text>

@@ -19,7 +19,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 
 import WideSaveButton from '@/components/wideSaveButton';
-import { ABSTRACT, CITY, NATURE, SavedWallpaper } from '@/constants/Specifications';
+import { ABSTRACT, CITYSCAPES, NATURE, SavedWallpaper } from '@/constants/Specifications';
 import styles from '@/Stylesheets/CategoryScreen';
 import { WallpaperCardProps } from '@/type';
 import SingleCategory from '../components/SingleCategory';
@@ -33,7 +33,7 @@ const Categories = () => {
   const [selected, setSelected] = useState<WallpaperCardProps | null>(null);
   const toastAnim = useRef(new Animated.Value(0));
 
-  const categoryMap: Record<string, any> = { NATURE, ABSTRACT, CITY };
+  const categoryMap: Record<string, any> = { NATURE, ABSTRACT, CITYSCAPES };
   const data = categoryMap[categoryName] || NATURE;
 
   const fadeInOutToast = () => {
