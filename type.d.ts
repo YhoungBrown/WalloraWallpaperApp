@@ -24,5 +24,16 @@ export type WallpaperCardProps = {
   title: string;
   id: string;
   liked?: boolean;
+  linkCopied? : boolean;
+  onPress?: () => void;
+};
+
+export type WideButtonProps = {
+   iconName?:string;
+  iconColor?: string;
+  buttonText: string;
+  backgroundColor: string;
+  borderColor?: string;
+  textColor: string;
   onPress?: () => void;
 };

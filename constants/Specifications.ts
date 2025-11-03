@@ -1,3 +1,5 @@
+import { WallpaperCardProps } from "@/type";
+
 export const SPECS = {
   spacing: { xs: 8, sm: 12, md: 16, lg: 24 },
   radius: { md: 16, lg: 20 },
@@ -205,3 +207,5 @@ export const CITY = [
   liked: false
 },
 ]
+
+export const SavedWallpaper: WallpaperCardProps[] = []
