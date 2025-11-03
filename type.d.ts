@@ -37,3 +37,10 @@ export type WideButtonProps = {
   textColor: string;
   onPress?: () => void;
 };
+
+export interface WallpaperModalProps {
+  selected: WallpaperCardProps | null;
+  setSelected: (item: WallpaperCardProps | null) => void;
+  onSaveFavorite?: (item: WallpaperCardProps) => void;
+  onSetWallpaper?: (item: WallpaperCardProps) => void;
+}
